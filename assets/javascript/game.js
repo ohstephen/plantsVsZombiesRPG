@@ -52,8 +52,12 @@ $(document).ready(function(){
 			var deadCount = 0;
 		}
 
+		//check for chose hero
 		var check1 = false;
+		//check for attack button
+		var check2 = false;
 
+		//Enable player to choose new enemy
 		function click() {
 			$(".characterGroup").children().on("click", selectNewEnemy);
 		}
@@ -63,16 +67,20 @@ $(document).ready(function(){
 				$(this).addClass("hero").appendTo(".player");
 				check1 = true;
 			}
-			if(check1)
+			if(check1 = true)
 			click();
 		})
 			
 
 		//Character selected will go to defender area and the rest will hide
 		function selectNewEnemy() {
-			$(this).addClass("selected").appendTo('.defender');
-			$(this).addClass("enemy").appendTo(".defender");
+			$(this).addClass("selected", "enemy").appendTo('.defender');
 			$(".characterGroup").children().on("click").hide();
+			check2 = true;
+
+		}
+		//If player chose an enemy, enable the attack function
+		if (check2 = true) {
 			$(".atk").on("click", attack);
 			console.log(this);
 		}
@@ -117,24 +125,28 @@ $(document).ready(function(){
 
         	//Condition lose game if player runs out of health
         	if (playerHp <= 0) {
+        		var audio = new Audio("assets/javascript/fanfare.mp3");
+					audio.play();
         		$(".hero").html("You are dead").append("<img class='charImg' src='assets/images/grave.png' />");
         		userDead = true;
         	}
         	
         	
         	console.log(deadCount);
-        	if (deadCount >= 3 || userDead) {
+        	if (deadCount >= 3) {
         		complete = true;
         		$(".statements").html("You win!");
+        	} else if (userDead = true) {
+        		complete = true;
         	}
-        	/*if (complete) {
-        		$(".reset").on("click", reset), startGame;
-        	}*/
+        	if (complete = true) {
+        		$(".reset").on("click", reset);
+        	}
 
 		}
 	}
 
-	/*function reset() {
+	function reset() {
 		var player = "";
     	var enemy = "";
     	var playerAtk = "";
@@ -150,8 +162,10 @@ $(document).ready(function(){
 		var charAtk = "";
 		var charCounter = "";
 		var check1 = false;
+		var check2 = false;
+		$(".characterGroup").reset();
 	}
-	*/
+	
 
 	startGame();
 
