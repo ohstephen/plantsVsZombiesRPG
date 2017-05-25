@@ -1,7 +1,7 @@
 body {
      background: url("../images/bg.jpg") no-repeat center center fixed;
      background-size: cover;
- }
+}
 h2 {
      text-align: center;
 }
@@ -12,27 +12,22 @@ h2 {
      font-family: Helvetica, Arial, sans-serif;
      text-shadow: 1px 1px 1px #666;
      font-weight: bold;
- }
+}
  
- .charImg {
+.charImg {
      width: 200px;
- }
- 
- .characterGroup {
+}
+
+.character {
      display: inline-block;
      padding-left: 20px;
- }
+}
 
- .character {
-     display: inline-block;
-     padding-left: 20px;
- }
-
- .enemyFace {
+.enemyFace {
      -moz-transform: scaleX(-1);
         -o-transform: scaleX(-1);
         -webkit-transform: scaleX(-1);
         transform: scaleX(-1);
         filter: FlipH;
         -ms-filter: "FlipH";
- }
+}
