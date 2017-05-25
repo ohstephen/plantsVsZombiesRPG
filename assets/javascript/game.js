@@ -117,7 +117,9 @@ $(document).ready(function(){
         		click();
         	//If enemy is not dead, enemy attacks player
         	} else {
-            	playerHp = playerHp - enemyAtk;   	
+            	playerHp = playerHp - enemyAtk;
+            	var audio = new Audio("assets/sounds/chomp.mp3");
+					audio.play(); 	
         	}
         	//Updates player health
         	$(".hero").find(".charHP").text(playerHp);
@@ -125,7 +127,7 @@ $(document).ready(function(){
 
         	//Condition lose game if player runs out of health
         	if (playerHp <= 0) {
-        		var audio = new Audio("assets/javascript/fanfare.mp3");
+        		var audio = new Audio("assets/sounds/loss.mp3");
 					audio.play();
         		$(".hero").html("You are dead").append("<img class='charImg' src='assets/images/grave.png' />");
         		userDead = true;
@@ -135,6 +137,8 @@ $(document).ready(function(){
         	console.log(deadCount);
         	if (deadCount >= 3) {
         		complete = true;
+        		var audio = new Audio("assets/sounds/win.mp3");
+					audio.play();
         		$(".statements").html("You win!");
         	} else if (userDead = true) {
         		complete = true;
@@ -163,7 +167,6 @@ $(document).ready(function(){
 		var charCounter = "";
 		var check1 = false;
 		var check2 = false;
-		$(".characterGroup").reset();
 	}
 	
 
